@@ -1,0 +1,30 @@
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <!-- Cài đặt kết nối cơ sở dữ liệu JDBC -->
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ASM1_ORM</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">admin123</property>
+
+    <property name="hibernate.connection.provider_class">org.hibernate.hikaricp.internal.HikariCPConnectionProvider</property>
+    <property name="hibernate.hikari.connectionTimeout">10000</property>
+    <property name="hibernate.hikari.minimumIdle">20</property>
+    <property name="hibernate.hikari.maximumPoolSize">300</property>
+    <property name="hibernate.hikari.idleTimeout">200000</property>
+
+    <!-- Chỉ định Dialect -->
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+    <!-- Hiển thị tất cả các câu lệnh SQL thực thi ra console -->
+    <property name="hibernate.show_sql">true</property>
+
+    <!-- Xử lý schema cơ sở dữ liệu khi khởi động -->
+    <property name="hibernate.hbm2ddl.auto">update</property>
+
+    <!-- Ánh xạ Annotation -->
+    <mapping class="org.example.model.Category"/>
+    <mapping class="org.example.model.Product"/>
+  </session-factory>
+</hibernate-configuration>
+
